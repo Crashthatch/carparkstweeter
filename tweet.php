@@ -46,12 +46,10 @@ if( count($fullCarParks) > 0 ){
   $recentlyTweetedFull = [];
   $recentTweets = $connection->get('statuses/user_timeline');
   forEach( $recentTweets as $recentTweet){
-    var_dump($recentTweet);
     if( strtotime($recentTweet->created_at) > time()-60*60 && strpos($recentTweet->text, "is FULL") !== false){
       $recentlyTweetedFull[] = trim(str_replace('&amp;', '&', substr($recentTweet->text, 0, strpos($recentTweet->text, " is FULL"))));
     }
   }
-  var_dump( $recentlyTweetedFull );
 
   forEach( $fullCarParks as $carpark){
     //Check if this car park was mentioned recently.
