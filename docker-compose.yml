@@ -1,0 +1,4 @@
+carparkstweeter:
+  build: .
+  env_file:
+   - TwitterCreds.env
