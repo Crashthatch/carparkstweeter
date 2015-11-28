@@ -77,4 +77,7 @@ if( count($fullCarParks) > 0 ){
     $response = $connection->post("statuses/update", $tweetDetails);
   }
 }
+else{
+  echo "No car parks are full. Not tweeting. \n";
+}
 ?>
