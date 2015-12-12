@@ -4,6 +4,8 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 date_default_timezone_set('Europe/London');
 
+$startTime = microtime(true);
+
 //Get the consumer (app's) key & secret from: https://apps.twitter.com/app/8786076/keys
 define('CONSUMER_KEY', getenv("TWITTER_CONSUMER_KEY"));
 define('CONSUMER_SECRET', getenv("TWITTER_CONSUMER_SECRET"));
@@ -75,9 +77,14 @@ if( count($fullCarParks) > 0 ){
     );
     echo "Tweeting: ".$tweetDetails['status']."\n";
     $response = $connection->post("statuses/update", $tweetDetails);
+
+    var_dump($response);
+    sleep(1);
   }
 }
 else{
   echo "No car parks are full. Not tweeting. \n";
 }
+
+echo "Done in ".(microtime(true) - $startTime)." seconds. \n";
 ?>
