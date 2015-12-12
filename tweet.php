@@ -86,5 +86,5 @@ else{
   echo "No car parks are full. Not tweeting. \n";
 }
 
-echo "Done in ".(microtime(true) - $startTime)." seconds. \n";
+die("Done in ".(microtime(true) - $startTime)." seconds. \n");
 ?>
